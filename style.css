@@ -13,14 +13,20 @@ ul {
 
 li {
     margin: 0.5em;
-    display:inline-block;
+    display:inline-table;
     border:0.05rem solid rgb(184, 184, 184);
     border-radius: 0.85rem;
 }
 
-h3{
+p{
+    width:14rem;
+    padding-left: 0.75rem;
+    overflow-wrap: break-word;
+    font-size: 1.3rem;
     text-align: center;
+    
     position: relative;
+    
     top:-0.55rem;
 }
 img{
@@ -30,16 +36,18 @@ img{
 }
 h4{
     margin: 0;
+    font-size: 1.2rem;
     display: inline-block;
     position: relative;
-    left: 1.2rem;
-    top: -0.8rem;
+    left: 1.5rem;
+    top: -0.2rem;
 }
 button{
     float: right;
+    font-size: 1.2rem;
     position: relative;
-    top:-0.8rem;
-    left: -1.2rem;
+    top:-1.8rem;
+    left: -1.5rem;
     
 }
 
@@ -47,7 +55,7 @@ button{
 .container {
     display: grid;
     width: 70%;
-    /*max-width: 70rem;*/
+    max-width: 70rem;
     position: relative;
     margin: auto;
     gap: 1rem;
@@ -67,7 +75,6 @@ nav {
 }
 main {
     grid-area: main;
-    justify-items:center;
 }
 
 footer {
