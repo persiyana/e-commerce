@@ -19,14 +19,14 @@ fetch('https://asos2.p.rapidapi.com/products/v2/list?store=US&offset=0&categoryI
          }
         }
         for (const index of indexes) {
-            const div = document.createElement('li');
-            div.classList.add('product'+index);
+            const li = document.createElement('li');
+            li.classList.add('product'+index);
             const prod =response.products[index];
             
-            div.innerHTML += `<img src="http://${prod.imageUrl}" /><br/>`;
-            div.innerHTML += `<p>${prod.name}</p><br/>`;
-            div.innerHTML += `<h4>${prod.price.current.text}</h4><br/><button type="button">Buy</button>`;
-            document.getElementById('list-of-products').appendChild(div);
+            li.innerHTML += `<img src="http://${prod.imageUrl}" /><br/>`;
+            li.innerHTML += `<p>${prod.name}</p><br/>`;
+            li.innerHTML += `<h4>${prod.price.current.text}</h4><br/><button type="button">Buy</button>`;
+            document.getElementById('list-of-products').appendChild(li);
         }
     })
     .catch(err => console.error(err));
