@@ -8,13 +8,18 @@ const options = {
 };
 
 async function listOfItems() {
-    const response = await fetch('https://asos2.p.rapidapi.com/products/v2/list?store=US&offset=0&categoryId=4209&limit=48&country=US&sort=freshness&currency=USD&sizeSchema=US&lang=en-US', options);
-    const shopInfo = await response.json();
-    const category = await shopInfo.categoryName;
-    const products = await shopInfo.products;
+    try {
+        const response = await fetch('https://asos2.p.rapidapi.com/products/v2/list?store=US&offset=0&categoryId=4209&limit=48&country=US&sort=freshness&currency=USD&sizeSchema=US&lang=en-US', options);
+        const shopInfo = await response.json();
+        const category = await shopInfo.categoryName;
+        const products = await shopInfo.products;
 
-    document.getElementById('categoryName').innerHTML += `<h3 id='categoryN'>${category}</h3>`;
-    displayItems(products);
+        document.getElementById('categoryName').innerHTML += `<h3 id='categoryN'>${category}</h3>`;
+        displayItems(products);
+    }
+    catch (error) {
+        console.log(error);
+    }
 }
 
 const indexes = [];
