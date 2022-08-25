@@ -1,15 +1,15 @@
-
+const url = 'https://asos2.p.rapidapi.com/products/v2/list?store=US&offset=0&categoryId=4209&limit=48&country=US&sort=freshness&currency=USD&sizeSchema=US&lang=en-US';
 const options = {
     method: 'GET',
     headers: {
-        'X-RapidAPI-Key': 'b2cf30ec30msh8bfb7e980100998p1da74fjsnc1233039b101',
+        'X-RapidAPI-Key': ''/*ADD YOUR API KEY*/,
         'X-RapidAPI-Host': 'asos2.p.rapidapi.com'
     }
 };
 
 async function listOfItems() {
     try {
-        const response = await fetch('https://asos2.p.rapidapi.com/products/v2/list?store=US&offset=0&categoryId=4209&limit=48&country=US&sort=freshness&currency=USD&sizeSchema=US&lang=en-US', options);
+        const response = await fetch(url, options);
         const shopInfo = await response.json();
         const category = await shopInfo.categoryName;
         const products = await shopInfo.products;
@@ -22,7 +22,7 @@ async function listOfItems() {
     }
 }
 
-const indexes = [];
+let indexes = [];
 
 function getRandomIndexes(numOfProducts) {
     while (indexes.length < 20) {
@@ -35,7 +35,7 @@ function getRandomIndexes(numOfProducts) {
 
 function displayItems(products) {
     const numOfProducts = products.length;
-    getRandomIndexes(numOfProducts)
+    getRandomIndexes(numOfProducts);
     for (const index of indexes) {
         const li = document.createElement('li');
         li.classList.add('product' + index);
